@@ -1,3 +1,9 @@
+# Dev files
+websites_split_by_date_addded.csv
+
+# Composer
+/vendor/
+
 # Windows thumbnail cache files
 Thumbs.db
 ehthumbs.db
