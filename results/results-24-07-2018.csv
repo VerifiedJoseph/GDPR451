@@ -1,4 +1,4 @@
-url,status,note
+url,status,code,note
 https://www.99acres.com/,Blocked,412,
 http://www.airthinx.io/,Blocked,403,
 http://americanmilitarynews.com/,Blocked,403,
@@ -116,7 +116,7 @@ http://www.times-news.com/,Blocked,451,
 http://www.salemnews.com/,Blocked,451,
 http://www.register-herald.com/,Blocked,451,
 http://www.tribstar.com/,Blocked,451,
-http://www.heraldbulletin.com/,Failed,N/A,"Could not resolve host: www.heraldbulletin.com"
+http://www.heraldbulletin.com/,Blocked,451,
 http://www.kokomotribune.com/,Blocked,451,
 http://www.mankatofreepress.com/,Blocked,451,
 http://www.sharonherald.com/,Blocked,451,
@@ -365,8 +365,8 @@ http://www.teutopolispress.com,Blocked,403,
 http://tewksbury.wickedlocal.com,Blocked,403,
 http://www.the-review.com,Blocked,403,
 http://www.amtrib.com,Blocked,403,
-http://www.apalachtimes.com,Failed,N/A,"Could not resolve host: www.apalachtimes.com"
-http://www.augustachronicle.com,Failed,N/A,"Could not resolve host: www.augustachronicle.com"
+http://www.apalachtimes.com,Blocked,403,
+http://www.augustachronicle.com,Blocked,403,
 http://www.barnstablepatriot.com,Blocked,403,
 http://acton.wickedlocal.com,Blocked,403,
 http://maynard.wickedlocal.com/,Blocked,403,
