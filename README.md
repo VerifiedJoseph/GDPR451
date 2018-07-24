@@ -1,4 +1,5 @@
 # GDPR451
+GDPR451 is a php command line script for checking the availability of websites in the EU after GDPR became law on 25 May 2018.
 
 The script checks the website listed in `websites.csv` and saves the results to `results.csv`, it also outputs the results to a table in the terminal.
 
