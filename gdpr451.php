@@ -129,7 +129,7 @@ try {
 	$writer = Writer::createFromPath($csv_results_file, 'w+');
 	
 	// Insert header
-	$writer->insertOne(['url', 'status', 'note']);
+	$writer->insertOne(['url', 'status', 'code', 'note']);
 	
 	// Insert rows
 	$writer->insertAll($results);
