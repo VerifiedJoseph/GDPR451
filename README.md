@@ -13,5 +13,5 @@ league/climate
 ```
 ## Limitations
 - No request retry when a request fails due to a connection error.
-- Script only checks response headers not HTML for changes.
-- User agent must manually enabled or disabled in the code, it can't be set via a cli argument, or for individual requests.
+- Script only checks response headers for changes not HTML.
+- Custom user agent can't be set via a cli argument, but it can be set for individual requests in `websites.csv`.
