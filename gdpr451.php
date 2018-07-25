@@ -1,7 +1,7 @@
 <?php
 /*
 	Created: July 13, 2018
-	Modifed: July 24, 2018
+	Modifed: July 25, 2018
 */
 
 // Libraries loaded via composer
@@ -42,9 +42,10 @@ try {
 	foreach ($records as $index => $row) {
 		$note = "";
 		
-		$url = $row['website'];
-		$blocked_status = $row['blocked_status_code'];
-		$blocked_redirect = $row['blocked_redirect_url'];
+		$url = trim($row['website']);
+		$blocked_status = trim($row['blocked_status_code']);
+		$blocked_redirect = trim($row['blocked_redirect_url']);
+		$user_agent = $row['user_agent'];
 
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_URL, $url);
@@ -53,6 +54,11 @@ try {
 		curl_setopt($curl, CURLINFO_HEADER_OUT, 1);
 		curl_setopt($curl, CURLOPT_ENCODING, 'gzip, deflate');
 		//curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:62.0) Gecko/20100101 Firefox/62.0');
+		
+		// Set user_agent if $user_agent is not empty
+		if (!empty($user_agent)) { 
+			curl_setopt($curl, CURLOPT_USERAGENT, $user_agent);
+		}
 	
 		// Perform the request
 		$raw_response = curl_exec($curl);
