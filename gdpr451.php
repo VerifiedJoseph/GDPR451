@@ -55,7 +55,7 @@ try {
 		curl_setopt($curl, CURLOPT_ENCODING, 'gzip, deflate');
 		//curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:62.0) Gecko/20100101 Firefox/62.0');
 		
-		// Set user_agent if $user_agent is not empty
+		// Set user agent if $user_agent is not empty
 		if (!empty($user_agent)) { 
 			curl_setopt($curl, CURLOPT_USERAGENT, $user_agent);
 		}
