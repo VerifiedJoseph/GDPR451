@@ -1,7 +1,7 @@
 <?php
 /*
 	Created: July 13, 2018
-	Modifed: July 25, 2018
+	Modifed: July 27, 2018
 */
 
 // Libraries loaded via composer
@@ -38,95 +38,147 @@ try {
 	
 	$climate->out("Checking... " . count($reader) . " websites");
 
-	// Loop through each item
+	// Loop through each url.
 	foreach ($records as $index => $row) {
-		$note = "";
+		$result = array();
 		
 		$url = trim($row['website']);
 		$blocked_status = trim($row['blocked_status_code']);
 		$blocked_redirect = trim($row['blocked_redirect_url']);
 		$user_agent = $row['user_agent'];
 
-		$curl = curl_init();
-		curl_setopt($curl, CURLOPT_URL, $url);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($curl, CURLOPT_HEADER, 1);
-		curl_setopt($curl, CURLINFO_HEADER_OUT, 1);
-		curl_setopt($curl, CURLOPT_ENCODING, 'gzip, deflate');
-		//curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:62.0) Gecko/20100101 Firefox/62.0');
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_HEADER, 1);
+		curl_setopt($ch, CURLINFO_HEADER_OUT, 1);
 		
-		// Set user agent if $user_agent is not empty
-		if (!empty($user_agent)) { 
-			curl_setopt($curl, CURLOPT_USERAGENT, $user_agent);
-		}
+		// Set encoding
+		curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
+		
+		// Set user agent
+		curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:62.0) Gecko/20100101 Firefox/62.0');
+
+		// Set Headers
+		curl_setopt($ch, CURLOPT_HTTPHEADER, [
+			'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' // Some request fail if not set
+		]);
+		
+		// Number of request tries run
+		$i = 0;
 	
-		// Perform the request
-		$raw_response = curl_exec($curl);
-
-		// Curl info
-		$response = curl_getinfo($curl);
-
-		// HTTP Response Body
-		$response['body'] = substr($raw_response, $response['header_size']);
+		// Number seconds to wait (sleep) between each failed request
+		$sleep = [5, 10, 30, 60];
 		
-		$header_text = substr($raw_response, 0, $response['header_size']);
+		// Max number of tries per request
+		$max_tries = count($sleep); 
+		
+		while($i++ < $max_tries) { // Loop
+			$error = false; // Default
+			$note = "";
+
+			echo "Fetching " . $url . " \r";
+			
+			// Perform the request
+			$raw_response = curl_exec($ch);
+			
+			// Curl request info
+			$response = curl_getinfo($ch);
+			
+			// HTTP Response Body
+			$response['body'] = substr($raw_response, $response['header_size']);
+			
+			$header_text = substr($raw_response, 0, $response['header_size']);
 		 
-		if(preg_match_all('/([a-zA-Z-0-9]+): ?(.*)\b/', trim($header_text), $matches, PREG_SET_ORDER, 0)) {
+			if(preg_match_all('/([a-zA-Z-0-9]+): ?(.*)\b/', trim($header_text), $matches, PREG_SET_ORDER, 0)) {
 
-			foreach ($matches as $header) {
+				foreach ($matches as $header) {
 			
-				$response['headers'][$header[1]] = trim($header[2]);
+					$response['headers'][$header[1]] = trim($header[2]);
 				
-			}
+				}
 			
-		}
-		
-		if (curl_errno($curl)) { // Request frailed, cURL error
-			
-			$error_code = curl_errno($curl);
-			$error_message = curl_error($curl);
-
-			$results[] = array (
-				'url' => $url,
-				'status' => "Failed",
-				'code' => "N/A",
-				'note' => $error_message,
-			);
-
-			$climate->out($url . " | Failed | " . $error_message . " (" . $error_code . ")");
-
-		} else { // Successful request, check headers
-			
-			if (!empty($blocked_redirect) && $response['http_code'] == $blocked_status && $response['headers']['Location'] == $blocked_redirect) { // Status codes and redirect urls match.
-
-				$status = "Blocked";
-				$note = $response['headers']['Location'];
-
-			} else if ($response['http_code'] == $blocked_status) { // Status code match.
-			
-				$status = "Blocked";
-				
-			} else { // No match, website maybe accessible.
-			
-				$status = "Unblocked";
-				
 			}
 	
-			$results[] = array (
-				'url' => $url,
-				'status' => $status,
-				'code' => $response['http_code'],
-				'note' => $note,
-			);
+			if (curl_errno($ch)) { // Failed, cURL error
+			
+				// Get error details
+				$error = true;
+				$error_code = curl_errno($ch);
+				$error_message = curl_error($ch);
+	
+				$result = array (
+					'url' => $url,
+					'status' => "Failed",
+					'code' => "N/A",
+					'note' => $error_message,
+				);					
+				
+				$climate->out($url . " | Failed | " . $error_message . " (" . $error_code . ")");
 
-			$climate->out($index . " " . $url . " | " . $status . " | " . $response['http_code'] . " | " . $response['total_time'] . " | " . $note);
+			} else if ($response['http_code'] === 429) { // Failed, too many requests
+			
+				$error = true;
+				$note = "Too many requests";
+				
+				$result = array(
+					'url' => $url,
+					'status' => "Failed",
+					'code' => $response['http_code'],
+					'note' => $note,
+				);
+				
+				$climate->out($index . " " . $response['http_code'] . " " . $url . " | Failed | " . $response['total_time'] . " | " . $note);
+			
+			} else { // Successful request, check headers
+			
+				// Check redirect urls if set.
+				if (!empty($blocked_redirect) && isset($response['headers']['Location']) && $response['headers']['Location'] == $blocked_redirect) {
 
+					$status = "Blocked";
+					$note = $response['headers']['Location'];
+
+				} else if ($response['http_code'] == $blocked_status) { // Status code match.
+			
+					$status = "Blocked";
+				
+				} else { // No match, website maybe available.
+			
+					$status = "Unblocked";
+				
+				}
+	
+				$results[] = array(
+					'url' => $url,
+					'status' => $status,
+					'code' => $response['http_code'],
+					'note' => $note,
+				);
+
+				$climate->out($index . " " . $response['http_code'] . " " . $url . " | " . $status . " | " . $response['total_time'] . " | " . $note);
+
+				// Break from loop retry loop
+				break;
+				
+			}
+			
+			// if error, wait and try again
+			if ($i < $max_tries && $error === true) {
+	
+				echo "  Trying again in " . $sleep[$i] . " seconds \n";	
+				sleep($sleep[$i]);
+
+			} else { // All requests for URL failed
+		
+				// Add failed request results to results array
+				$results[] = $result;
+				
+				// Break from while retry loop
+				break;
+	
+			}
 		}
-
-		// Wait for 1 seconds between each request.
-		sleep(1);
-
-	}
+	}	
 	
 	// Output $results as a table.
 	$climate->table($results);
