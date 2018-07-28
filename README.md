@@ -12,5 +12,4 @@ league/csv
 league/climate
 ```
 ## Limitations
-- No request retry when a request fails due to a connection error.
 - Script only checks response headers for changes not HTML.
