@@ -45,7 +45,6 @@ try {
 		$url = trim($row['website']);
 		$blocked_status = trim($row['blocked_status_code']);
 		$blocked_redirect = trim($row['blocked_redirect_url']);
-		$user_agent = $row['user_agent'];
 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
