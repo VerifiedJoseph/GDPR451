@@ -1,6 +1,7 @@
 # Dev files
 websites_split_by_date_addded.csv
-/_websites list scrapers/
+websites_test.csv
+/_website list scrapers/
 .~lock.*
 
 # Composer
@@ -29,4 +30,3 @@ $RECYCLE.BIN/
 # =========================
 # Operating System Files
 # =========================
-websites_test.csv
