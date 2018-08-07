@@ -90,6 +90,7 @@ http://www.wvva.com/,200,
 http://www.wxow.com/,200,
 https://www.dallasnews.com/,200,
 https://sportsday.dallasnews.com/,200,
+https://www.post-gazette.com/,200,
 https://www.ncaa.com/,301,https://international.ncaa.com
 http://www.citypaper.com/,302,http://www.tronc.com/gdpr/citypaper.com
 http://www.baltimoresun.com/,302,http://www.tronc.com/gdpr/baltimoresun.com
@@ -1067,3 +1068,5 @@ https://www.averyjournal.com/,451,
 https://www.highcountrync.com/,451,
 http://www.journalpatriot.com/,451,
 http://www.hillsborobanner.com/,451,
+http://wire.lee.net/,451,
+https://www.fredericksburg.com/,451,
