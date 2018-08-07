@@ -1,7 +1,7 @@
 <?php
 /*
 	Created: July 13, 2018
-	Modifed: July 27, 2018
+	Modifed: August 07, 2018
 */
 
 // Libraries loaded via composer
@@ -60,7 +60,7 @@ try {
 
 		// Set Headers
 		curl_setopt($ch, CURLOPT_HTTPHEADER, [
-			'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' // Some request fail if not set
+			'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
 		]);
 		
 		// Number of request tries run
