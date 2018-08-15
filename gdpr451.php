@@ -1,7 +1,7 @@
 <?php
 /*
 	Created: July 13, 2018
-	Modifed: August 07, 2018
+	Modifed: August 15, 2018
 */
 
 // Libraries loaded via composer
@@ -24,7 +24,7 @@ $results = array();
 try {
 	
 	if (php_sapi_name() != 'cli') {
-		throw new Exception("checker.php must be run via the command line.");
+		throw new Exception("gdpr451.php must be run via the command line.");
 	}
 
 	// Load CSV file
@@ -43,8 +43,19 @@ try {
 		$result = array();
 		
 		$url = trim($row['website']);
-		$blocked_status = trim($row['blocked_status_code']);
+		$blocked_status_code = trim($row['blocked_status_code']);
 		$blocked_redirect = trim($row['blocked_redirect_url']);
+
+		if (empty($url)) {
+			$climate->out("No website given in csv row " . $index);
+			continue;	
+		}
+		
+		if (empty($blocked_status_code)) {
+			$climate->out("No blocked_status_code given in csv row " . $index);
+			continue;
+		}
+		
 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
@@ -177,7 +188,7 @@ try {
 	
 			}
 		}
-	}	
+	}
 	
 	// Output $results as a table.
 	$climate->table($results);
