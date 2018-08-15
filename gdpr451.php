@@ -234,14 +234,24 @@ try {
 	
 	}
 
-	// Save results to disk.
-	$writer = Writer::createFromPath($csv_results_file, 'w+');
+	try {
+    	
+		$writer = Writer::createFromPath($csv_results_file, 'w+');
+
+		// Insert header
+		$writer->insertOne(['url', 'status', 'code', 'note']);
 	
-	// Insert header
-	$writer->insertOne(['url', 'status', 'code', 'note']);
+		// Insert rows
+		$writer->insertAll($results);
 	
-	// Insert rows
-	$writer->insertAll($results);
+		$climate->out("Created results file: " . $csv_results_file);
+		
+	} catch (CannotInsertRecord $e) {
+    	
+		$climate->out("Failed insert record: " . $e->getRecords());
+		$climate->out("Results file not created");
+	
+	}
 	
 } catch (Exception $e) {
 	$climate->out($e->getMessage());
