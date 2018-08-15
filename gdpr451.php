@@ -21,12 +21,45 @@ $csv_results_file = __DIR__ . '/results.csv';
 // Array of check results
 $results = array();
 
+// Results Table
+$create_results_table = true;
+
+// Command line options
+$long_options = array(
+	"disable_table", // Disable output table creation
+	"websites:", // Use a custom website.csv file
+	"results:" // Use a custom results.csv file
+);
+
+$short_options = ''; 
+
+// Set and get options
+$cli_options = getopt($short_options, $long_options);
+
 try {
 	
 	if (php_sapi_name() != 'cli') {
 		throw new Exception("gdpr451.php must be run via the command line.");
 	}
 
+	// Check for custom website.csv file
+	if (isset($cli_options['websites']) && $cli_options['websites'] != false) {
+		$climate->out("website csv file: " . $cli_options['websites']);
+		$csv_file = $cli_options['websites'];
+	}
+	
+	// Check for custom results.csv file
+	if (isset($cli_options['results']) && $cli_options['results'] != false) {
+		$climate->out("results csv file: " . $cli_options['results']);
+		$csv_results_file = $cli_options['results'];
+	}
+	
+	// Check for disable_table option
+	if (isset($cli_options['disable_table'])) {
+		$climate->out("Disabled output table creation");
+		$create_results_table = false;
+	}
+	
 	// Load CSV file
 	$reader = Reader::createFromPath($csv_file, 'r');
 	
@@ -148,7 +181,7 @@ try {
 					$status = "Blocked";
 					$note = $response['headers']['Location'];
 
-				} else if ($response['http_code'] == $blocked_status) { // Status code match.
+				} else if ($response['http_code'] == $blocked_status_code) { // Status code match.
 			
 					$status = "Blocked";
 				
@@ -190,9 +223,17 @@ try {
 		}
 	}
 	
-	// Output $results as a table.
-	$climate->table($results);
+	if ($create_results_table === true) {
 	
+		if (count($results) > 0) {
+		
+			// Output $results as a table.
+			$climate->table($results);
+		
+		}
+	
+	}
+
 	// Save results to disk.
 	$writer = Writer::createFromPath($csv_results_file, 'w+');
 	
