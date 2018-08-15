@@ -10,7 +10,7 @@ A full list of websites that are or were blocked can be found at: [https://data.
 ```
 --websites="FILE PATH" 	Use a custom websites csv file
 --results="FILE PATH" 	Use a custom results csv file
---disable_table 		Disable results table creation
+--disable_table 	Disable results table creation
 ```
 
 ## Dependencies (via Composer)
