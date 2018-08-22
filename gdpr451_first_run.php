@@ -1,7 +1,7 @@
 <?php
 /*
 	Created: August 21, 2018
-	Modifed: August 21, 2018
+	Modifed: August 22, 2018
 */
 
 // Libraries loaded via composer
@@ -184,7 +184,7 @@ try {
 				} else if ($response['http_code'] === 302) {
 				
 					$status = "Blocked";
-					$note = "Website redirect to another page using status code 302. Redirect page may be a block page, you may want to check manually.";
+					$note = "Website redirects to another page using status code 302. Redirect page may be a block page, you may want to check manually.";
 				
 				} else if (isset($response['headers']['Location'])) {
 				
@@ -194,7 +194,7 @@ try {
 				} else if ($response['http_code'] === 200) {
 				
 					$status = "Unblocked";
-					$note = "Some websites still use this status code when blocking, you may want check manually.";	
+					$note = "Some websites still use this status code when blocking EU users, you may want check manually.";	
 				
 				} else {
 				
