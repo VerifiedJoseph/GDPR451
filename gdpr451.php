@@ -1,7 +1,7 @@
 <?php
 /*
 	Created: July 13, 2018
-	Modifed: August 15, 2018
+	Modifed: August 28, 2018
 */
 
 // Libraries loaded via composer
@@ -23,6 +23,17 @@ $results = array();
 
 // Results Table
 $create_results_table = true;
+
+// cURL Encoding
+$curl_encoding = 'gzip, deflate';
+
+// cURL User Agent
+$curl_useragent = 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:62.0) Gecko/20100101 Firefox/62.0';
+
+// cURL HTTP Headers
+$curl_headers = array(
+	'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+);
 
 // Command line options
 $long_options = array(
@@ -97,15 +108,13 @@ try {
 		curl_setopt($ch, CURLINFO_HEADER_OUT, 1);
 		
 		// Set encoding
-		curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
+		curl_setopt($ch, CURLOPT_ENCODING, $curl_useragent);
 		
 		// Set user agent
-		curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:62.0) Gecko/20100101 Firefox/62.0');
+		curl_setopt($ch, CURLOPT_USERAGENT, $curl_useragent);
 
 		// Set Headers
-		curl_setopt($ch, CURLOPT_HTTPHEADER, [
-			'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
-		]);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $curl_headers);
 		
 		// Number of request tries run
 		$i = 0;
