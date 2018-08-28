@@ -13,10 +13,10 @@ use League\Csv\Writer;
 $climate = new League\CLImate\CLImate;
 
 // Location of website list file
-$csv_file = __DIR__ . '/websites.csv';
+$csv_file = __DIR__ . DIRECTORY_SEPARATOR . 'websites.csv';
 
 // Location of results file
-$csv_results_file = __DIR__ . '/results.csv';
+$csv_results_file = __DIR__ . DIRECTORY_SEPARATOR . 'results.csv';
 
 // Array of check results
 $results = array();
