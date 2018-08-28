@@ -108,7 +108,7 @@ try {
 		curl_setopt($ch, CURLINFO_HEADER_OUT, 1);
 		
 		// Set encoding
-		curl_setopt($ch, CURLOPT_ENCODING, $curl_useragent);
+		curl_setopt($ch, CURLOPT_ENCODING, $curl_encoding);
 		
 		// Set user agent
 		curl_setopt($ch, CURLOPT_USERAGENT, $curl_useragent);
