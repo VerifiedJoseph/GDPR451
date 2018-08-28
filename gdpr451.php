@@ -151,87 +151,87 @@ try {
 				}
 			
 			}
-	
-			if (curl_errno($ch)) { // Failed, cURL error
 			
-				// Get error details
-				$error = true;
-				$error_code = curl_errno($ch);
-				$error_message = curl_error($ch);
-	
-				$result = array (
-					'url' => $url,
-					'status' => "Failed",
-					'code' => "N/A",
-					'note' => $error_message,
-				);					
-				
-				$climate->out($url . " | Failed | " . $error_message . " (" . $error_code . ")");
+			try {
+			
+				if (curl_errno($ch)) { // Failed, cURL error
+			
+					$http_status_code = 'N/A';
+					$note = curl_error($ch) . ' (' .  curl_errno($ch) . ')';
 
-			} else if ($response['http_code'] === 429) { // Failed, too many requests
-			
-				$error = true;
-				$note = "Too many requests";
-				
-				$result = array(
-					'url' => $url,
-					'status' => "Failed",
-					'code' => $response['http_code'],
-					'note' => $note,
-				);
-				
-				$climate->out($index . " " . $response['http_code'] . " " . $url . " | Failed | " . $response['total_time'] . " | " . $note);
-			
-			} else { // Successful request, check headers
-			
-				// Check redirect urls if set.
-				if (!empty($blocked_redirect) && isset($response['headers']['Location']) && $response['headers']['Location'] == $blocked_redirect) {
-
-					$status = "Blocked";
-					$note = $response['headers']['Location'];
-
-				} else if ($response['http_code'] == $blocked_status_code) { // Status code match.
-			
-					$status = "Blocked";
-				
-				} else { // No match, website maybe available.
-			
-					$status = "Unblocked";
-				
+					throw new Exception('cURL error');
+					
 				}
 	
-				$results[] = array(
+				if ($response['http_code'] === 429) { // Failed, too many requests
+			
+					$http_status_code = $response['http_code'];
+					$note = 'Too many requests';
+					
+					throw new Exception('Client error');
+			
+				}
+
+				$http_status_code = $response['http_code'];
+				$status = "Unblocked";
+				
+				if (!empty($blocked_redirect)) {
+					
+					// Website redirects to the URL from the 'blocked_redirect_url' column
+					if (isset($response['headers']['Location']) && $response['headers']['Location'] == $blocked_redirect) {
+					
+						$status = "Blocked";
+						$note = $response['headers']['Location'];
+					
+					}
+
+				// Returned status code and 'blocked_status_code' match
+				} else if ($response['http_code'] == $blocked_status_code) {
+			
+					$status = "Blocked";
+				
+				}
+			
+			} catch (Exception $e) {
+				
+				$status = 'Failed';
+				$error = true;
+				$note .= ' (' . $e->getMessage() . ')';
+				
+			} finally {
+	
+				$result = array(
 					'url' => $url,
 					'status' => $status,
-					'code' => $response['http_code'],
+					'code' => $http_status_code,
 					'note' => $note,
 				);
-
-				$climate->out($index . " " . $response['http_code'] . " " . $url . " | " . $status . " | " . $response['total_time'] . " | " . $note);
-
-				// Break from loop retry loop
-				break;
+				
+				$climate->out($index . " " . $http_status_code . " " . $url . " | " . $status . " | " . $note);
 				
 			}
 			
-			// if error, wait and try again
+			// If error, wait and try again
 			if ($i < $max_tries && $error === true) {
 	
 				echo "  Trying again in " . $sleep[$i] . " seconds \n";	
 				sleep($sleep[$i]);
 
-			} else { // All requests for URL failed
+			} else { // Successful request or all requests for URL failed
 		
-				// Add failed request results to results array
+				// Add Request results to results array
 				$results[] = $result;
-				
+
 				// Break from while retry loop
 				break;
 	
 			}
+			
 		}
+		
 	}
 	
+	// Create results table
 	if ($create_results_table === true) {
 	
 		if (count($results) > 0) {
