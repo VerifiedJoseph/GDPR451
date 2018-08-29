@@ -1,7 +1,7 @@
 <?php
 /*
 	Created: July 13, 2018
-	Modifed: August 28, 2018
+	Modifed: August 29, 2018
 */
 
 // Libraries loaded via composer
@@ -146,7 +146,10 @@ try {
 
 				foreach ($matches as $header) {
 			
-					$response['headers'][$header[1]] = trim($header[2]);
+					$name = strtolower($header[1]);
+					$value = trim($header[2]);
+					
+					$response['headers'][$name] = $value;
 				
 				}
 			
@@ -178,10 +181,10 @@ try {
 				if (!empty($blocked_redirect)) {
 					
 					// Website redirects to the URL from the 'blocked_redirect_url' column
-					if (isset($response['headers']['Location']) && $response['headers']['Location'] == $blocked_redirect) {
+					if (isset($response['headers']['location']) && $response['headers']['location'] == $blocked_redirect) {
 					
 						$status = "Blocked";
-						$note = $response['headers']['Location'];
+						$note = $response['headers']['location'];
 					
 					}
 
