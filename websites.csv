@@ -115,11 +115,11 @@ http://www.sandiegouniontribune.com,302,http://www.tronc.com/gdpr/sandiegouniont
 https://unroll.me,302,https://gdpr-eu.unroll.me
 https://www.newsday.com,302,https://projects.newsday.com/gdpr
 http://www.gannett.com,302,http://eu-message.usatoday.com
-https://www.baseballhq.com,302,http://eu-message.usatoday.com
-https://www.amny.com,302,https://projects.newsday.com/gdpr/
+https://www.baseballhq.com,302,https://eu-message.usatoday.com
+https://www.amny.com,302,https://projects.newsday.com/gdpr
 https://www.adn.com,302,https://www.adn.com/redirect-gdpr/?outputType=noscript
-http://www.ctnow.com,302,http://www.tronc.com/gdpr/ctnow.com/
-https://tubitv.com,302,https://gdpr.tubi.tv/
+http://www.ctnow.com,302,http://www.tronc.com/gdpr/ctnow.com
+https://tubitv.com,302,https://gdpr.tubi.tv
 http://www.airthinx.io,403,
 http://americanmilitarynews.com,403,
 https://www.bangordailynews.com,403,
