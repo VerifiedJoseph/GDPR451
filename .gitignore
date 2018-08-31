@@ -3,6 +3,7 @@ websites_split_by_date_addded.csv
 websites_test.csv
 /_website list scrapers/
 .~lock.*
+/_scripts/
 
 # Composer
 /vendor/
