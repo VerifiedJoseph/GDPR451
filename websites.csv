@@ -121,6 +121,8 @@ https://www.adn.com,302,https://www.adn.com/redirect-gdpr/?outputType=noscript
 http://www.ctnow.com,302,http://www.tronc.com/gdpr/ctnow.com
 https://tubitv.com,302,https://gdpr.tubi.tv
 https://investorjunkie.com,302,https://welcome.investorjunkie.com/not-available/?url
+https://marketing.usatoday.com ,302,https://eu-message.usatoday.com
+https://motosport.com,302,https://static-content.motosport.com/GDPR/index.html
 http://www.airthinx.io,403,
 http://americanmilitarynews.com,403,
 https://www.bangordailynews.com,403,
@@ -1253,3 +1255,23 @@ https://www.tillamookheadlightherald.com,451,
 https://www.yoursun.com,451,
 https://www.thechronicleonline.com,451,
 https://www.thechiefnews.com,451,
+http://cedarrepublican.com,451,
+http://www.advocateanddemocrat.com,451,
+http://www.alvinsun.net,451,
+http://www.banderabulletin.com,451,
+http://www.camplejeuneglobe.com,451,
+http://www.choteauacantha.com,451,
+http://www.creightonian.com,451,
+http://www.derbyinformer.com,451,
+http://www.esubulletin.com,451,
+http://www.newportplaintalk.com,451,
+http://www.news-graphic.com,451,
+http://www.perryvillenews.com,451,
+http://www.portlavacawave.com,451,
+http://www.sanfernandosun.com,451,
+http://www.timesleader.net,451,
+http://www.trinityjournal.com,451,
+http://www.wpnews.com,451,
+https://www.jacksonprogress-argus.com,451,
+https://www.primepublishers.com/,451,
+https://www.voiceofalexandria.com,451,
