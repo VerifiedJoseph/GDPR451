@@ -108,7 +108,7 @@ http://www.courant.com,302,http://www.tronc.com/gdpr/courant.com
 https://www.instapaper.com,302,/gdpr
 http://www.latimes.com,302,http://www.tronc.com/gdpr/latimes.com
 http://www.nydailynews.com,302,http://www.tronc.com/gdpr/nydailynews.com
-http://www.orlandosentinel.com,302,http://www.tronc.com/gdpr/orlandosentinel.com
+https://www.orlandosentinel.com,302,http://www.tronc.com/gdpr/orlandosentinel.com
 http://www.sun-sentinel.com,302,http://www.tronc.com/gdpr/sun-sentinel.com
 http://www.mcall.com,302,http://www.tronc.com/gdpr/mcall.com
 http://www.sandiegouniontribune.com,302,http://www.tronc.com/gdpr/sandiegouniontribune.com
@@ -897,7 +897,7 @@ http://www.the-messenger.com,451,
 http://www.messenger-inquirer.com,451,
 https://www.heraldpalladium.com,451,
 http://www.thedigitalcourier.com,451,
-http://hendersondispatch.com,451,
+https://hendersondispatch.com,451,
 http://www.enquirerjournal.com,451,
 http://www.sanfordherald.com,451,
 https://themountainpress.com,451,
@@ -1079,7 +1079,7 @@ https://www.mcdowellnews.com,451,
 http://www.mebaneenterprise.com,451,
 https://www.morganton.com,451,
 http://www.newsoforange.com,451,
-http://newstopicnews.com,451,
+https://newstopicnews.com,451,
 https://www.statesville.com,451,
 http://www.thesylvaherald.com,451,
 http://www.warrenrecord.com,451,
