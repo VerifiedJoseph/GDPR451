@@ -124,6 +124,7 @@ https://investorjunkie.com,302,https://welcome.investorjunkie.com/not-available/
 https://marketing.usatoday.com ,302,https://eu-message.usatoday.com
 https://motosport.com,302,https://static-content.motosport.com/GDPR/index.html
 https://krispykreme.com,302,/legal/gdpr-notice
+https://spoonuniversity.com,302,https://gdpr.spoonuniversity.com
 http://www.airthinx.io,403,
 http://americanmilitarynews.com,403,
 https://www.bangordailynews.com,403,
@@ -556,6 +557,10 @@ https://countrymedia.net,403,
 https://northcoastcitizen.com,403,
 https://www.cavaliercountyextra.com,403,
 https://adamscountyextra.com,403,
+http://www.journaldequebec.com,403,
+https://www.autoweb.com,403,
+http://auburnjournal.com,403,
+https://www.placerherald.com,403,
 https://www.99acres.com,412,
 https://ultimategarage.com,412,
 http://www.atchisonglobenow.com,451,
@@ -1321,3 +1326,7 @@ https://www.southernchestercountyweeklies.com,451,
 https://www.thepenn.org,451,
 https://www.theredstonerocket.com,451,
 https://www.tv6tnt.com,451,
+http://www.burnettcountysentinel.com,451,
+http://www.covingtonleader.com,451,
+http://www.minicassia.com,451,
+http://www.shipnc.com,451,
