@@ -4,7 +4,7 @@ GDPR451 is a php command line script for checking the availability of websites i
 
 The script checks the websites listed in `websites.csv` and saves the results to `results.csv`, it also outputs the results to a table in the terminal.
 
-A full list of websites that are or were blocked can be found at: [https://data.verifiedjoseph.com/dataset/websites-not-available-eu-gdpr](https://data.verifiedjoseph.com/dataset/websites-not-available-eu-gdpr) or [https://github.com/VerifiedJoseph/data.verifiedjoseph.com-CSV-files/blob/master/website-blocked-gdpr.csv](https://github.com/VerifiedJoseph/data.verifiedjoseph.com-CSV-files/blob/master/website-blocked-gdpr.csv)
+A full list of websites that are or were blocked can be found at: [https://data.verifiedjoseph.com/dataset/websites-not-available-eu-gdpr](https://data.verifiedjoseph.com/dataset/websites-not-available-eu-gdpr) or [https://github.com/VerifiedJoseph/data.verifiedjoseph.com/blob/master/website-blocked-gdpr.csv](https://github.com/VerifiedJoseph/data.verifiedjoseph.com/blob/master/website-blocked-gdpr.csv)
 
 ## Command line options
 ```
