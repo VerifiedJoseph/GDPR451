@@ -99,9 +99,9 @@ https://hoiabc.com,200,
 https://www.ncaa.com,301,https://international.ncaa.com
 http://www.citypaper.com,302,http://www.tribpub.com/gdpr/citypaper.com
 http://www.baltimoresun.com,302,http://www.tribpub.com/gdpr/baltimoresun.com
-http://www.carrollcountytimes.com,302,http://www.tribpub.com/gdpr/carrollcountytimes.com
-http://www.capitalgazette.com,302,http://www.tribpub.com/gdpr/capitalgazette.com
-http://www.chicagotribune.com,302,http://www.tribpub.com/gdpr/chicagotribune.com
+https://www.carrollcountytimes.com,302,http://www.tribpub.com/gdpr/carrollcountytimes.com
+https://www.capitalgazette.com,302,http://www.tribpub.com/gdpr/capitalgazette.com
+https://www.chicagotribune.com,302,http://www.tribpub.com/gdpr/chicagotribune.com
 http://www.dailypress.com,302,http://www.tribpub.com/gdpr/dailypress.com
 http://www.courant.com,302,http://www.tribpub.com/gdpr/courant.com
 https://www.instapaper.com,302,/gdpr
@@ -117,7 +117,7 @@ http://www.gannett.com,302,http://eu-message.usatoday.com
 https://www.baseballhq.com,302,https://eu-message.usatoday.com
 https://www.amny.com,302,https://projects.newsday.com/gdpr
 https://www.adn.com,302,https://www.adn.com/redirect-gdpr/?outputType=noscript
-http://www.ctnow.com,302,http://www.tribpub.com/gdpr/ctnow.com
+https://www.ctnow.com,302,http://www.tribpub.com/gdpr/ctnow.com
 https://tubitv.com,302,https://gdpr.tubi.tv
 https://investorjunkie.com,302,https://welcome.investorjunkie.com/not-available/?url
 https://marketing.usatoday.com ,302,https://eu-message.usatoday.com
