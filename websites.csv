@@ -97,13 +97,13 @@ https://www.brylanehome.com,200,
 https://www.cgtn.com,200,
 https://hoiabc.com,200,
 https://www.ncaa.com,301,https://international.ncaa.com
-http://www.citypaper.com,302,http://www.tribpub.com/gdpr/citypaper.com
-http://www.baltimoresun.com,302,http://www.tribpub.com/gdpr/baltimoresun.com
+https://www.citypaper.com,302,http://www.tribpub.com/gdpr/citypaper.com
+https://www.baltimoresun.com,302,http://www.tribpub.com/gdpr/baltimoresun.com
 https://www.carrollcountytimes.com,302,http://www.tribpub.com/gdpr/carrollcountytimes.com
 https://www.capitalgazette.com,302,http://www.tribpub.com/gdpr/capitalgazette.com
 https://www.chicagotribune.com,302,http://www.tribpub.com/gdpr/chicagotribune.com
-http://www.dailypress.com,302,http://www.tribpub.com/gdpr/dailypress.com
-http://www.courant.com,302,http://www.tribpub.com/gdpr/courant.com
+https://www.dailypress.com,302,http://www.tribpub.com/gdpr/dailypress.com
+https://www.courant.com,302,http://www.tribpub.com/gdpr/courant.com
 https://www.instapaper.com,302,/gdpr
 http://www.latimes.com,302,http://www.tribpub.com/gdpr/latimes.com
 http://www.nydailynews.com,302,http://www.tribpub.com/gdpr/nydailynews.com
@@ -124,7 +124,7 @@ https://marketing.usatoday.com ,302,https://eu-message.usatoday.com
 https://motosport.com,302,https://static-content.motosport.com/GDPR/index.html
 https://krispykreme.com,302,/legal/gdpr-notice
 https://spoonuniversity.com,302,https://gdpr.spoonuniversity.com
-http://www.vagazette.com,302,http://www.tribpub.com/gdpr/vagazette.com
+https://www.vagazette.com,302,http://www.tribpub.com/gdpr/vagazette.com
 http://www.airthinx.io,403,
 http://americanmilitarynews.com,403,
 https://www.bangordailynews.com,403,
@@ -145,7 +145,7 @@ http://arlington.wickedlocal.com,403,
 http://www.onlineathens.com,403,
 http://www.auroraadvertiser.net,403,
 http://www.barnesville-enterprise.com,403,
-http://www.examiner-enterprise.com,403,
+https://www.examiner-enterprise.com,403,
 http://www.bastropenterprise.com,403,
 http://www.beauregarddailynews.net,403,
 http://www.timesonline.com,403,
@@ -186,7 +186,7 @@ http://www.chillicothenews.com,403,
 http://bellingham.wickedlocal.com,403,
 http://www.crestviewbulletin.com,403,
 http://www.crookstontimes.com,403,
-http://www.ardmoreite.com,403,
+https://www.ardmoreite.com,403,
 http://www.dailycommercial.com,403,
 http://www.mpnnow.com,403,
 http://www.reviewatlas.com,403,
@@ -212,7 +212,7 @@ http://www.geneseorepublic.com,403,
 http://georgetown.wickedlocal.com,403,
 http://www.yourglenrosetx.com,403,
 http://www.weeklycitizen.com,403,
-http://www.grandlakenews.com,403,
+https://www.grandlakenews.com,403,
 http://www.granitefallsnews.com,403,
 http://www.greenwooddemocrat.com,403,
 http://www.thegurdontimes.com,403,
@@ -257,7 +257,7 @@ http://rockland.wickedlocal.com,403,
 http://medfield.wickedlocal.com,403,
 http://medford.wickedlocal.com,403,
 http://melrose.wickedlocal.com,403,
-http://www.miamiok.com,403,
+https://www.miamiok.com,403,
 http://www.middletowntranscript.com,403,
 http://www.midlothianmirror.com,403,
 http://www.milfordbeacon.com,403,
@@ -296,7 +296,7 @@ http://www.olneydailymail.com,403,
 http://www.oriongazette.com,403,
 http://www.newsherald.com,403,
 http://www.paris-express.com,403,
-http://www.pawhuskajournalcapital.com,403,
+https://www.pawhuskajournalcapital.com,403,
 http://www.pekintimes.com,403,
 http://pembroke.wickedlocal.com,403,
 http://www.theperrychief.com,403,
@@ -324,7 +324,7 @@ http://saugus.wickedlocal.com,403,
 https://www.savannahnow.com,403,
 http://scituate.wickedlocal.com,403,
 http://sharon.wickedlocal.com,403,
-http://www.news-star.com,403,
+https://www.news-star.com,403,
 http://shrewsbury.wickedlocal.com,403,
 http://www.siskiyoudaily.com,403,
 http://www.sleepyeyenews.com,403,
@@ -366,7 +366,7 @@ https://www.dispatch.com,403,
 http://concord.wickedlocal.com,403,
 http://www.lincolncourier.com,403,
 http://www.courier-tribune.com,403,
-http://www.columbiadailyherald.com,403,
+https://www.columbiadailyherald.com,403,
 http://www.ridgecrestca.com,403,
 https://www.daily-jeff.com,403,
 http://www.pontiacdailyleader.com,403,
@@ -414,7 +414,7 @@ http://www.milforddailynews.com,403,
 http://www.mayportmirror.com,403,
 http://www.monroenews.com,403,
 http://www.thekansan.com,403,
-http://www.oakridger.com,403,
+https://www.oakridger.com,403,
 http://www.ottawaherald.com,403,
 http://www.patriotledger.com,403,
 http://www.progress-index.com,403,
@@ -1047,7 +1047,7 @@ http://www.pinecitymn.com,451,
 http://www.djournal.com,451,
 http://www.gwcommonwealth.com,451,
 http://www.ddtonline.com,451,
-http://www.pressregister.com,451,
+https://www.pressregister.com,451,
 https://www.columbiamissourian.com,451,
 http://www.maryvilleforum.com,451,
 https://www.sedaliademocrat.com,451,
